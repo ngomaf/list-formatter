@@ -1,0 +1,21 @@
+{
+    "name": "ngomafortuna/list-formatter",
+    "description": "Formatter from composite datas in list format. This library receive list like a database format (Formatador de dados compostos em formato de lista. Esta biblioteca recebe listas em formato de base de dados)",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "autoload": {
+        "psr-4": {
+            "Ngomafortuna\\ListFormatter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ngoma M. Fortuna",
+            "email": "ngomafortuna@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=8.0"
+    }
+}
