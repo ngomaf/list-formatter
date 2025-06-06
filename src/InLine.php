@@ -2,8 +2,6 @@
 
 namespace Ngomafortuna\ListFormatter;
 
-use stdClass;
-
 
 /**
  * <b>InLine</b>
@@ -11,23 +9,16 @@ use stdClass;
  * 
  * copyright (c) 2025, ngoma m. fortuna of the mostarda tec
  */
-class InLine
+class InLine extends ListTemplate
 {
     /**
      * The @param $params need two item when you use @param $url. 
      * Ex.: ['name', 'id'] or ['name', 'slug'],
      */
-    public static function get(object|array $list, array $params, ?string $url = null) : string
-    {
-        if(is_array($list)) {
-            $newList = new stdClass;
-            
-            foreach($list as $key => $value) {
-                $newList->$key = (object)$value;
-            }
 
-            $list = $newList;
-        }
+    public static function get(object|array $list, array $params, ?string $url = null): string
+    {
+        $list = self::objectValidate($list);
         
         if(count($params) < 1 || empty($params[0])) { // validate $params
             return '[param_error] The array $params is empty';

@@ -9,12 +9,14 @@ namespace Ngomafortuna\ListFormatter;
  * 
  * copyright (c) 2025, ngoma m. fortuna of the mostarda tec
  */
-class Order
+class Order extends ListTemplate
 {
-    public static function get(object|array $list, string $reference) : object
+    public static function get(object|array $list, string $reference): object
     {
         $ordList = array();
         $token = false;
+        
+        $list = self::objectValidate($list);
         
         foreach($list as $key => $item) {
         
@@ -40,10 +42,12 @@ class Order
         return (object) $ordList;
     }
 
-    public static function rGet(object|array $list, string $reference) : object
+    public static function rGet(object|array $list, string $reference): object
     {
         $ordList = array();
         $token = false;
+        
+        $list = self::objectValidate($list);
         
         foreach($list as $key => $item) {
         
