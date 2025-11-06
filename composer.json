@@ -1,6 +1,6 @@
 {
     "name": "ngomafortuna/list-formatter",
-    "description": "Formatter from composite datas in list format. This library receive list like a database format (Formatador de dados compostos em formato de lista. Esta biblioteca recebe listas em formato de base de dados)",
+    "description": "Formatter from composite datas to string list. This library accepts lists in array or database format and converts them into strings where each item is separated by commas. This library also sorts a composite list (array/object) in ascending and descending order. (Formatador de dados compostos para string. Esta biblioteca recebe listas em formato de array ou base de dados e converte string em onde cada item é separado por vígulas. Esta biblioteca também ordena uma lista composta (array/object) de forma crescente e decrescente.)",
     "type": "library",
     "license": "BSD-3-Clause",
     "autoload": {

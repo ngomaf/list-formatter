@@ -14,10 +14,10 @@ $arrayLIst = [
     ['title' => 'Socieda','date' => '2024-76-06','image' => 'photo2.jpg']
 ];
 
-// $list = InLine::get($notices, ['title']);
-// $list1 = InLine::get($notices, ['title', 'slug'], 'https://www.minharosa.ao');
+$list = InLine::get($notices, ['title']);
+$list1 = InLine::get($notices, ['title', 'slug'], 'https://www.minharosa.ao');
 
-// var_dump($list, $list1);
+var_dump($list, $list1);
 
 // $objectLIst = new stdClass;
 
@@ -25,11 +25,11 @@ $arrayLIst = [
 //     $objectLIst->$key = (object)$value;
 // }
 
-$order = Order::get($arrayLIst, 'title');
+// $order = Order::get($arrayLIst, 'title');
 
-$order1 = Order::get($arrayLIst, 'title');
+// $order1 = Order::rget($arrayLIst, 'title');
 
-var_dump($order, $order1);
+// var_dump($order, $order1);
 
 
 

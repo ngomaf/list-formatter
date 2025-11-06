@@ -1,5 +1,6 @@
 # List formatter
-Formatter from composite datas in list format. This library receive list like a database format (Formatador de dados compostos em formato de lista. Esta biblioteca recebe listas em formato de base de dados)
+Formatter from composite datas to string list. This library accepts lists in array or database format and converts them into strings where each item is separated by commas. This library also sorts a composite list (array/object) in ascending and descending order. 
+(Formatador de dados compostos para string. Esta biblioteca recebe listas em formato de array ou base de dados e converte string em onde cada item é separado por vígulas. Esta biblioteca também ordena uma lista composta (array/object) de forma crescente e decrescente.)
 
 
 This component have two features:
@@ -88,13 +89,13 @@ object(stdClass)#7 (3) {
 
 object(stdClass)#11 (3) {
   ["0"]=>
-  object(stdClass)#9 (3) {
+  object(stdClass)#8 (3) {
     ["title"]=>
-    string(7) "Cultura"
+    string(11) "Vestimentas"
     ["date"]=>
-    string(10) "2025-06-06"
+    string(10) "2024-06-06"
     ["image"]=>
-    string(10) "photo3.jpg"
+    string(10) "photo1.jpg"
   }
   ["1"]=>
   object(stdClass)#10 (3) {
@@ -106,13 +107,13 @@ object(stdClass)#11 (3) {
     string(10) "photo2.jpg"
   }
   ["2"]=>
-  object(stdClass)#8 (3) {
+  object(stdClass)#9 (3) {
     ["title"]=>
-    string(11) "Vestimentas"
+    string(7) "Cultura"
     ["date"]=>
-    string(10) "2024-06-06"
+    string(10) "2025-06-06"
     ["image"]=>
-    string(10) "photo1.jpg"
+    string(10) "photo3.jpg"
   }
 }
 ```
