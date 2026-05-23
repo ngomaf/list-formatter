@@ -29,11 +29,18 @@ composer require ngomafortuna/list-formatter
 ## Syntax and mode of use
 
 ```php
-$list = ListToString::get($notices, ['title']);
-$list1 = ListToString::getWithLink($notices, ['title', 'slug'], 'https://www.minharosa.ao');
+ListToString::get($array, 'array_key');
+ListToString::getWithLink($array, ['array_key', 'array_key'], 'url');
+```
 
-$order = Order::get($arrayLIst, 'title');
-$order1 = Order::getReverse($arrayLIst, 'title');
+```php
+Order::get($array, 'array_key');
+Order::getReverse($array, 'array_key');
+```
+
+```php
+ToListType::toObject($array);
+ToListType::toArray($object);
 ```
 
 ## Example
@@ -48,15 +55,97 @@ $arrayLIst = [
     ['title' => 'Vestimentas', 'slug'=> 'vestimentas', 'date' => '2024-06-06'],
     ['title' => 'Cultura', 'slug'=> 'cultura','date' => '2025-06-06'],
 ];
+```
 
+```php
 // TRANSFORM ARRAY OR OBJECT LIST IN LINE (STRING)
 $list = ListToString::get($arrayLIst, 'title');
 $list_with_link = ListToString::getWithLink($arrayLIst, ['title', 'slug'], 'https://www.minharosa.ao');
 
+var_dump($list, $list_with_link);
+```
+
+Result
+
+```shell
+string(29) "Socieda, Vestimentas, Cultura"
+
+string(176) "<a href='https://www.minharosa.ao/sociedade'>Socieda</a>, <a href='https://www.minharosa.ao/vestimentas'>Vestimentas</a>, <a href='https://www.minharosa.ao/cultura'>Cultura</a>"
+```
+
+```php
 // ORDER ARRAY OR OBJECT
 $order = Order::get($arrayLIst, 'title');
 $order_reverse = Order::getReverse($arrayLIst, 'title');
 
+var_dump($order, $order_reverse);
+```
+
+Result
+
+```shell
+array(3) {
+  [0]=>
+  array(3) {
+    ["title"]=>
+    string(7) "Cultura"
+    ["slug"]=>
+    string(7) "cultura"
+    ["date"]=>
+    string(10) "2025-06-06"
+  }
+  [1]=>
+  array(3) {
+    ["title"]=>
+    string(7) "Socieda"
+    ["slug"]=>
+    string(9) "sociedade"
+    ["date"]=>
+    string(10) "2024-76-06"
+  }
+  [2]=>
+  array(3) {
+    ["title"]=>
+    string(11) "Vestimentas"
+    ["slug"]=>
+    string(11) "vestimentas"
+    ["date"]=>
+    string(10) "2024-06-06"
+  }
+}
+
+array(3) {
+  [0]=>
+  array(3) {
+    ["title"]=>
+    string(11) "Vestimentas"
+    ["slug"]=>
+    string(11) "vestimentas"
+    ["date"]=>
+    string(10) "2024-06-06"
+  }
+  [1]=>
+  array(3) {
+    ["title"]=>
+    string(7) "Socieda"
+    ["slug"]=>
+    string(9) "sociedade"
+    ["date"]=>
+    string(10) "2024-76-06"
+  }
+  [2]=>
+  array(3) {
+    ["title"]=>
+    string(7) "Cultura"
+    ["slug"]=>
+    string(7) "cultura"
+    ["date"]=>
+    string(10) "2025-06-06"
+  }
+}
+```
+
+```php
 // CONVERT ARRAY TO OBJECT END OBJECT TO ARRAY
 $conv_to_object = ToListType::toObject($arrayLIst);
 
@@ -69,82 +158,12 @@ foreach($arrayLIst as $item) {
 $listObj = (object) $listObj;
 $conv_to_array = ToListType::toArray($listObj);
 
-var_dump($list, $list_with_link);
-
-var_dump($order, $order_reverse);
-
 var_dump($conv_to_object, $conv_to_array);
-
 ```
 
-Results
+Result
 
 ```shell
-string(29) "Socieda, Vestimentas, Cultura"
-
-string(176) "<a href='https://www.minharosa.ao/sociedade'>Socieda</a>, <a href='https://www.minharosa.ao/vestimentas'>Vestimentas</a>, <a href='https://www.minharosa.ao/cultura'>Cultura</a>"
-
-
-array(3) {
-  [0]=>
-  array(3) {
-    ["title"]=>
-    string(7) "Cultura"
-    ["slug"]=>
-    string(7) "cultura"
-    ["date"]=>
-    string(10) "2025-06-06"
-  }
-  [1]=>
-  array(3) {
-    ["title"]=>
-    string(7) "Socieda"
-    ["slug"]=>
-    string(9) "sociedade"
-    ["date"]=>
-    string(10) "2024-76-06"
-  }
-  [2]=>
-  array(3) {
-    ["title"]=>
-    string(11) "Vestimentas"
-    ["slug"]=>
-    string(11) "vestimentas"
-    ["date"]=>
-    string(10) "2024-06-06"
-  }
-}
-
-array(3) {
-  [0]=>
-  array(3) {
-    ["title"]=>
-    string(11) "Vestimentas"
-    ["slug"]=>
-    string(11) "vestimentas"
-    ["date"]=>
-    string(10) "2024-06-06"
-  }
-  [1]=>
-  array(3) {
-    ["title"]=>
-    string(7) "Socieda"
-    ["slug"]=>
-    string(9) "sociedade"
-    ["date"]=>
-    string(10) "2024-76-06"
-  }
-  [2]=>
-  array(3) {
-    ["title"]=>
-    string(7) "Cultura"
-    ["slug"]=>
-    string(7) "cultura"
-    ["date"]=>
-    string(10) "2025-06-06"
-  }
-}
-
 object(stdClass)#6 (3) {
   ["0"]=>
   object(stdClass)#2 (3) {
@@ -174,7 +193,6 @@ object(stdClass)#6 (3) {
     string(10) "2025-06-06"
   }
 }
-
 
 array(3) {
   [0]=>
