@@ -57,8 +57,9 @@ $arrayLIst = [
 ];
 ```
 
+### Transforme array or object list to string
+
 ```php
-// TRANSFORM ARRAY OR OBJECT LIST IN LINE (STRING)
 $list = ListToString::get($arrayLIst, 'title');
 $list_with_link = ListToString::getWithLink($arrayLIst, ['title', 'slug'], 'https://www.minharosa.ao');
 
@@ -73,8 +74,9 @@ string(29) "Socieda, Vestimentas, Cultura"
 string(176) "<a href='https://www.minharosa.ao/sociedade'>Socieda</a>, <a href='https://www.minharosa.ao/vestimentas'>Vestimentas</a>, <a href='https://www.minharosa.ao/cultura'>Cultura</a>"
 ```
 
+### Order array or object list
+
 ```php
-// ORDER ARRAY OR OBJECT
 $order = Order::get($arrayLIst, 'title');
 $order_reverse = Order::getReverse($arrayLIst, 'title');
 
@@ -145,8 +147,9 @@ array(3) {
 }
 ```
 
+### Convert array list to object end object list to array
+
 ```php
-// CONVERT ARRAY TO OBJECT END OBJECT TO ARRAY
 $conv_to_object = ToListType::toObject($arrayLIst);
 
 // create object to convert
