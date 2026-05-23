@@ -2,7 +2,6 @@
 
 namespace Ngomafortuna\ListFormatter;
 
-use stdClass;
 
 /**
  * <b>Order</b>
@@ -70,7 +69,7 @@ class Order
     public static function getReverse(object|array $list, string $reference): mixed
     {
         if(! $reference || ! $list) return "The @reference or @list can not be empty.";
-        
+
         $ordList = array();
         $token = false;
 

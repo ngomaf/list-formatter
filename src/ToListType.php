@@ -2,8 +2,6 @@
 
 namespace Ngomafortuna\ListFormatter;
 
-use stdClass;
-
 
 class ToListType
 {
@@ -12,7 +10,7 @@ class ToListType
      */
     public static function toObject(array $list): object
     {
-        $newList = new stdClass;
+        $newList = new \stdClass;
         
         foreach($list as $key => $value) {
             $newList->$key = (object)$value;
