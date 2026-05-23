@@ -6,25 +6,28 @@ List formatter is a component with three main functions: (1) convert data in lis
 
 This component have 3 features:
 
-1. ListToString: To convert a list in array or object format into a string with each item separated by a comma, or also to add a hyperlink to each item. (para converter lista em formato de array ou objecto em string com cada item separado por vírgula ou ainda colocar um hiperlink para cada item)
-  - get: Returns a string, with each item separated by a comma. (retorna um string, com cada item separado por vígula)
-  - getWithLink: Returns a string, with each item as a hyperlink separated by a comma. (retorna um string, com cada item com hiperlink separado por vírgula)
+1. ListToString: To convert a list in array or object format into a string with each item separated by a comma, or also to add a hyperlink to each item. (para converter lista em formato de array ou objecto em string com cada item separado por vírgula ou ainda colocar um hiperlink para cada item).
+    - get: Returns a string, with each item separated by a comma. (retorna um string, com cada item separado por vígula)
+    - getWithLink: Returns a string, with each item as a hyperlink separated by a comma. (retorna um string, com cada item com hiperlink separado por vírgula)
 
 2. Order: to order array or object list, for two options ascending end descending. (Para ordenar elementos de uma lista, de forma crescente ou decrecente).
     - get: return list in asc order (retorna uma lista em ordem crescente)
     - getReverse: return list in desc order (retorna uma lista em ordem decrescente)
 
 3. ToListType: Converts object to array and vice-versa. (Converte objecto em array e vice-versa)
-  - toObject
-  - toArray
+    - toObject
+    - toArray
 
 ## Require
+
 Necessary PHP 8.0 or more (Necessário PHP 8.0 ou superior)
 
 ## Install
+
 composer require ngomafortuna/list-formatter
 
 ## Syntax and mode of use
+
 ```php
 $list = ListToString::get($notices, ['title']);
 $list1 = ListToString::getWithLink($notices, ['title', 'slug'], 'https://www.minharosa.ao');
@@ -34,6 +37,7 @@ $order1 = Order::getReverse($arrayLIst, 'title');
 ```
 
 ## Example
+
 ```php
 use Ngomafortuna\ListFormatter\ListToString;
 use Ngomafortuna\ListFormatter\Order;
@@ -65,6 +69,7 @@ var_dump($conv_to_object, $conv_to_array);
 ```
 
 Results
+
 ```shell
 string(29) "Socieda, Vestimentas, Cultura"
 
