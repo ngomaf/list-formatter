@@ -41,6 +41,7 @@ $order1 = Order::getReverse($arrayLIst, 'title');
 ```php
 use Ngomafortuna\ListFormatter\ListToString;
 use Ngomafortuna\ListFormatter\Order;
+use Ngomafortuna\ListFormatter\ToListType;
 
 $arrayLIst = [
     ['title' => 'Socieda', 'slug'=> 'sociedade','date' => '2024-76-06'],
@@ -58,6 +59,14 @@ $order_reverse = Order::getReverse($arrayLIst, 'title');
 
 // CONVERT ARRAY TO OBJECT END OBJECT TO ARRAY
 $conv_to_object = ToListType::toObject($arrayLIst);
+
+// create object to convert
+$listObj = [];
+foreach($arrayLIst as $item) {
+    $objModel = new \stdClass();
+    $objModel->title = $item['title']; $objModel->slug =  $item['slug']; $objModel->date = $item['date']; $listObj[] = $objModel;
+}
+$listObj = (object) $listObj;
 $conv_to_array = ToListType::toArray($listObj);
 
 var_dump($list, $list_with_link);
